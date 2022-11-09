@@ -1,6 +1,7 @@
 package com.cydeo.step_definitions;
 
 import com.cydeo.pages.LoginPage;
+import com.cydeo.pages.PoolPage;
 import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
 import io.cucumber.java.en.Given;
@@ -10,14 +11,18 @@ import io.cucumber.java.en.When;
 public class Pool_StepDefinitions {
 
     LoginPage loginPage=new LoginPage();
+    PoolPage poolPage=new PoolPage();
 
-    @Given("user is already POOL area")
-    public void user_is_already_pool_area() {
+    @Given("user is already logged in")
+    public void userIsAlreadyLoggedIn() {
         String url= ConfigurationReader.getProperty("env");
         Driver.getDriver().get(url);
         loginPage.loginWithConfig();
-        loginPage.poolButton.click();
+    }
 
+    @When("user clicks Poll button")
+    public void userClicksPollButton() {
+        poolPage.poolButton.click();
     }
     @When("user clicks Add More button")
     public void user_clicks_add_more_button() {
