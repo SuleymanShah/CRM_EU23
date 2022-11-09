@@ -13,11 +13,11 @@ public class Pool_StepDefinitions {
     LoginPage loginPage=new LoginPage();
     PoolPage poolPage=new PoolPage();
 
-    @Given("user is already logged in")
-    public void userIsAlreadyLoggedIn() {
+    @Given("user {string} is already logged in")
+    public void userIsAlreadyLoggedIn(String userShortName) {
         String url= ConfigurationReader.getProperty("env");
         Driver.getDriver().get(url);
-        loginPage.loginWithConfig();
+        loginPage.loginWithValid(userShortName);
     }
 
     @When("user clicks Poll button")
@@ -40,7 +40,6 @@ public class Pool_StepDefinitions {
     public void clicks_on_all_department_and_sub_department_employees_check_box() {
 
     }
-
 
 
 }
