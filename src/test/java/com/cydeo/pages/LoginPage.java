@@ -28,7 +28,7 @@ public class LoginPage {
      * This method will read arguments from the configuration.properties file.
      */
 
-    private static final Map<String,String> users = Map.of("hr1","hr3@cybertekschool.com","hr2",
+    private static final Map<String,String> users = Map.of("hr1","hr1@cybertekschool.com","hr2",
             "hr50@cybertekschool.com","helpdesk1", "helpdesk3@cybertekschool.com", "helpdesk2",
             "helpdesk50@cybertekschool.com","marketing1", "marketing3@cybertekschool.com",
             "marketing2","marketing50@cybertekschool.com");
