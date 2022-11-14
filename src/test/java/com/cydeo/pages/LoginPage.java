@@ -35,7 +35,7 @@ public class LoginPage {
 
 
     public void loginWithValid(String userShortName) {
-
+        Driver.getDriver().get(ConfigurationReader.getProperty("env"));
         inputUsername.sendKeys(users.get(userShortName));
         inputPassword.sendKeys(ConfigurationReader.getProperty("pw"));
         loginButton.click();
@@ -43,6 +43,7 @@ public class LoginPage {
     }
 
     private void userLogin(String userName) {
+        Driver.getDriver().get(ConfigurationReader.getProperty("env"));
         inputUsername.sendKeys(ConfigurationReader.getProperty(userName));
         inputPassword.sendKeys(ConfigurationReader.getProperty("pw"));
         loginButton.click();
