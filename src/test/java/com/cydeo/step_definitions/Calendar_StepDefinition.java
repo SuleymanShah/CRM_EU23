@@ -8,6 +8,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,7 +16,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 public class Calendar_StepDefinition {
 
@@ -40,7 +40,7 @@ public class Calendar_StepDefinition {
         wait.until(ExpectedConditions.visibilityOf(calendarPage.newEventPageTitle));
         String expectedTitle = "New Event";
         String actualTitle = calendarPage.newEventPageTitle.getText();
-        Assert.assertTrue(expectedTitle.equals(actualTitle));
+        Assert.assertEquals(expectedTitle, actualTitle);
     }
     @When("user clicks the -This event is important- checkbox")
     public void user_clicks_the_this_event_is_important_checkbox() {
@@ -98,7 +98,7 @@ public class Calendar_StepDefinition {
 
             if (!select.getFirstSelectedOption().getText().equals(repeatTime)){
                 select.selectByVisibleText(repeatTime);
-                Assert.assertTrue(select.getFirstSelectedOption().getText().equals(repeatTime));
+                Assert.assertEquals(select.getFirstSelectedOption().getText(), repeatTime);
             }
 
         if (!calendarPage.repeatDropdownAfterCheckBox.isSelected()){
@@ -212,7 +212,7 @@ public class Calendar_StepDefinition {
     @Then("user should not see the private event")
     public void user_should_not_see_the_private_event() {
 
-        Assert.assertFalse(calendarPage.isElementDisplayed());
+        Assert.assertFalse(calendarPage.isElementDisplayed("//span[.='1:40 pm']"));
 
     }
 
@@ -251,18 +251,68 @@ public class Calendar_StepDefinition {
 
     @When("user deletes attendees")
     public void user_deletes_attendees() {
-        BrowserUtils.sleep(2);
+        BrowserUtils.sleep(15);
+        Alert alert = Driver.getDriver().switchTo().alert();
+        alert.accept();
+
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
         wait.until(ExpectedConditions.visibilityOf(calendarPage.repeatDropdown));
         BrowserUtils.scrollToElement(calendarPage.attendeesAddMoreButton);
         calendarPage.marketing3DeleteButton.click();
         calendarPage.helpdesk3DeleteButton.click();
-        BrowserUtils.sleep(3);
     }
     @Then("user clicks the -Save- button and edit the event")
     public void user_clicks_the_save_button_and_edit_the_event() {
+        calendarPage.saveButton.click();
+        BrowserUtils.clickWithJS(calendarPage.newEvent25AugustButton);
+        calendarPage.newEventOpenButton.click();
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+        wait.until(ExpectedConditions.visibilityOf(calendarPage.newEventPageTitle));
+        Assert.assertFalse(calendarPage.isElementDisplayed("//span[.='helpdesk3@cybertekschool.com' and @bx-tooltip-classname=\"calendar-planner-user-tooltip\"]"));
+        Assert.assertFalse(calendarPage.isElementDisplayed("//span[.='marketing3@cybertekschool.com' and @bx-tooltip-classname=\"calendar-planner-user-tooltip\"]"));
 
     }
 
+    @When("user adds {string} as attendee")
+    public void user_adds_as_attendee(String string) {
+        calendarPage.attendeesAddMoreButton.click();
+        calendarPage.employeesAndDepartmentsLink.click();
+        BrowserUtils.clickWithJS(calendarPage.helpdesk11);
+        BrowserUtils.sleep(2);
+        calendarPage.afterAddAttendeesClick.click();
+    }
+    @Then("user clicks the -Save- button and edit the event with one more attendee")
+    public void user_clicks_the_save_button_and_edit_the_event_with_one_more_attendee() {
+        calendarPage.saveButton.click();
+        BrowserUtils.clickWithJS(calendarPage.newEvent25AugustButton);
+        calendarPage.newEventOpenButton.click();
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+        wait.until(ExpectedConditions.visibilityOf(calendarPage.newEventPageTitle));
+        Assert.assertTrue(calendarPage.helpdesk11IsDisplayed.isDisplayed());
+    }
+
+    @When("user clicks -Filter and search- box")
+    public void user_clicks_filter_and_search_box() {
+        calendarPage.filterAndSearchInput.click();
+    }
+    @When("user clicks -Invitations- button")
+    public void user_clicks_invitations_button() {
+        calendarPage.invitationButton.click();
+    }
+    @Then("user should display the invitations")
+    public void user_should_display_the_invitations() {
+        Assert.assertTrue(calendarPage.invitationDisplay.isDisplayed());
+    }
+
+    @When("user clicks -I'M AN ORGANISER- button")
+    public void user_clicks_i_m_an_organiser_button() {
+        calendarPage.ImAnOrganiserButton.click();
+    }
+
+
+    @Then("user should events and task")
+    public void user_should_events_and_task() {
+        Assert.assertTrue(calendarPage.ImAnOrganiserDisplay.isDisplayed());
+    }
 
 }

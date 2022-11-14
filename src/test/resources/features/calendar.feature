@@ -71,7 +71,7 @@ Feature:CRM application calendar feature
     When user sets -Repeat- as "Daily"
     Then user clicks the -Save- button and edit the event repeats daily
 
-  @tugba
+
   Scenario: HR User can delete attendee by editing the event
     Given "hr1" user is on the home page
     When user clicks -Calendar- button on the left side of the page
@@ -86,7 +86,7 @@ Feature:CRM application calendar feature
     When user clicks -Calendar- button on the left side of the page
     When user goes to 25 August on Calendar and clicks New Event
     When user clicks -Edit- button
-    When user adds "hr5@cybertekschool.com as attendee
+    When user adds "hr11@cybertekschool.com" as attendee
     Then user clicks the -Save- button and edit the event with one more attendee
 
 
@@ -94,7 +94,7 @@ Feature:CRM application calendar feature
     Given "marketing1" user is on the home page
     When user clicks -Calendar- button on the left side of the page
     When user clicks -Filter and search- box
-    When user clicks "Invitations" button
+    When user clicks -Invitations- button
     Then user should display the invitations
 
 
@@ -102,5 +102,12 @@ Feature:CRM application calendar feature
     Given "marketing1" user is on the home page
     When user clicks -Calendar- button on the left side of the page
     When user clicks -Filter and search- box
-    When user clicks "I'M AN ORGANISER" button
+    When user clicks -I'M AN ORGANISER- button
     Then user should events and task
+
+  @tugba
+  Scenario: Helpdesk User can reset after selecting "Yes" under "Event with participants" menu
+    Given "helpdesk1" user is on the home page
+    When user clicks -Calendar- button on the left side of the page
+    When user clicks -Filter and search- box
+    When user clicks -Event with participants menu

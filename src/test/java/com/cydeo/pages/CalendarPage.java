@@ -11,11 +11,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-
 import static com.cydeo.utilities.Driver.getDriver;
 
 public class CalendarPage {
@@ -83,8 +78,6 @@ public class CalendarPage {
         @FindBy(xpath = "//input[@name=\"lo_cation\"]")
         public WebElement locationDropdown;
 
-        //location dropdown does not have any option on html inspect side
-
         @FindBy(xpath = "//span[contains(@id,'slider-destination-link')]")
         public WebElement attendeesAddMoreButton;
 
@@ -108,6 +101,12 @@ public class CalendarPage {
 
         @FindBy(xpath = "//span[@data-id=\"U594\"]")
         public WebElement marketing3IsDisplayed;
+
+        @FindBy(xpath = "//div[.='hr11@cybertekschool.com']")
+        public WebElement helpdesk11;
+
+        @FindBy(xpath = "//span[.='hr11@cybertekschool.com' and @bx-tooltip-user-id=\"703\"]")
+        public WebElement helpdesk11IsDisplayed;
 
         @FindBy(xpath = "//div[@class=\"calendar-additional-alt-more\"]")
         public WebElement moreButton;
@@ -171,6 +170,12 @@ public class CalendarPage {
         @FindBy(xpath = "//span[@data-item-id=\"U493\"]")
         public WebElement helpdesk3DeleteButton;
 
+        @FindBy(xpath = "//span[.='helpdesk3@cybertekschool.com' and @bx-tooltip-classname=\"calendar-planner-user-tooltip\"]")
+        public WebElement helpdesk3AssertAfterDelete;
+
+        @FindBy(xpath = "//span[.='marketing3@cybertekschool.com' and @bx-tooltip-classname=\"calendar-planner-user-tooltip\"]")
+        public WebElement marketing3AssertAfterDelete;
+
         @FindBy(className = "calendar-navigation-previous")
         public WebElement calendarNavigationPreviousMonth;
 
@@ -192,11 +197,14 @@ public class CalendarPage {
         @FindBy(xpath = "//span[.=\"Invitations\"]")
         public WebElement invitationButton;
 
-        @FindBy(className = "calendar-counter-text")
+        @FindBy(xpath = "//div[.='Invitations']")
         public WebElement invitationDisplay;
 
         @FindBy(xpath = "//span[.=\"I'm an organiser\"]")
         public WebElement ImAnOrganiserButton;
+
+        @FindBy(xpath = "//div[.=\"I'm an organiser\"]")
+        public WebElement ImAnOrganiserDisplay;
 
         @FindBy(xpath = "//div[@data-name='IS_MEETING' and @data-params='{\"isMulti\":false}']")
         public WebElement eventWithParticipantsMenu;
@@ -215,9 +223,9 @@ public class CalendarPage {
                 Assert.assertTrue(actualTitle.contains("Calendar"));
         }
 
-        public boolean isElementDisplayed()
+        public boolean isElementDisplayed(String xpath)
         {
-               return !CollectionUtils.isEmpty(WEB_DRIVER.findElements(By.xpath("//span[.='1:40 pm']")));
+               return !CollectionUtils.isEmpty(WEB_DRIVER.findElements(By.xpath(xpath)));
         }
 
 }
