@@ -39,7 +39,7 @@ Feature: As a user, I should be able to send appreciation by clicking
     Then user should be able to have a permission message for the download from external driver
 
 
-@bug
+@aa
   Scenario:  User should be able to add users and recipients from selecting contact
   from Employees and Departments and Recent contact lists.
   (All Employee is shown as default, it was already declared as a bug in last Sprint)

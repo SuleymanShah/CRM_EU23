@@ -45,13 +45,13 @@ public class AppreciationPage {
     @FindBy(xpath = "//a[@id='bx-destination-tag']")
     public WebElement addMore;
 
-    @FindBy(xpath = "//a[@id='destDepartmentTab_destination8056626']")
+    @FindBy(xpath = "//a[text()='Employees and departments']")
     public WebElement employeeDepartment;
 
     @FindBy(xpath = "(//div[@class='bx-finder-company-department-employee-name'])[2]")
     public WebElement hr1;
 
-    @FindBy(xpath = "//a[@id='destLastTab_destination8056626']")
+    @FindBy(xpath = "//a[text()='Recent']")
     public WebElement recentOption;
 
     @FindBy(xpath = "(//div[@class='bx-finder-box-item-t7-name'])[1]")
