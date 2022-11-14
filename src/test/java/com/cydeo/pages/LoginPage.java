@@ -24,7 +24,6 @@ public class LoginPage {
     @FindBy(xpath = "//input[@class='login-btn']")
     public WebElement loginButton;
 
-
     /**
      * This method will read arguments from the configuration.properties file.
      */
