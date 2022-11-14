@@ -8,8 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.*;
 
-import static java.util.Arrays.asList;
-
 public class LoginPage {
     public LoginPage() {
         PageFactory.initElements(Driver.getDriver(),this);
@@ -35,6 +33,7 @@ public class LoginPage {
 
 
     public void loginWithValid(String userShortName) {
+
         Driver.getDriver().get(ConfigurationReader.getProperty("env"));
         inputUsername.sendKeys(users.get(userShortName));
         inputPassword.sendKeys(ConfigurationReader.getProperty("pw"));
