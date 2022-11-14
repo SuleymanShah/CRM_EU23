@@ -106,6 +106,7 @@ public class Appreciation_StepDefinition {
         BrowserUtils.waitFor(3);
     }
 
+
     @Then("user sees the editor text bar display on top of the message box")
     public void userSeesTheEditorTextBarDisplayOnTopOfTheMessageBox() {
         appreciationPage.visualToolBar.isDisplayed();
