@@ -20,7 +20,7 @@ Feature: Testing different functionalities of POLL feature in CRM app
     Given user "marketing2" is already logged in
     When user clicks Poll button
 
-  @Sce1 @Smoke
+  @Sce1
   Scenario: User should be able to add multiple users from Employees and Departments contact lists.
     Then user clicks Add More button
     Then clicks on Employees and departments button
@@ -29,14 +29,14 @@ Feature: Testing different functionalities of POLL feature in CRM app
     Then clicks on All department and sub department employees check box
     And user sees added HR employees in the To box
 
-  @Sce2 @Smoke
+  @Sce2
   Scenario: User should be able to attach link by clicking on the link icon
     Then user clicks link button
     Then user sees a popup message containing link and link-name boxes
     Then user inserts link_name "Ahmet Ozhan" and link_URL "https://www.youtube.com/watch?v=3yBVmnPZwSU"
     And user sees link formed in messaging area
 
-  @Sce3 @Smoke
+  @Sce3
   Scenario: User should be able to add mention by clicking on the add mention icon
     Then user clicks add mention icon
     Then user sees a popup box message containing a link to Employees and departments
@@ -66,5 +66,4 @@ Feature: Testing different functionalities of POLL feature in CRM app
     Then user enters a message into message area
     And user clicks Send button
 
-    And clicks on All department and sub department employees check box
 
