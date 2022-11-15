@@ -1,4 +1,4 @@
-@AGLP-1624 @smoke
+@AGLP-1624
 Feature: Services Functionality
   Agile story: As a Marketing user, I should be able to use "Services" functionality
   so that I can take advantage of company's services.
