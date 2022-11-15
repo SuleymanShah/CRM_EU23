@@ -11,11 +11,7 @@ Feature: Testing different functionalities of POLL feature in CRM app
   6. User should be able to provide multiple choice to attendees by selecting the Allow multiple choice checkbox.
   7. User should be able to send a poll.
 
-  Background: User is already logged in the app and clicked the 'Pool' button on the Activity Stream page
-    Given user "hr2" is already logged in
-
-
-
+  
   Background: User is already logged in the app and clicked the 'Poll' button on the Activity Stream page
     Given user "marketing2" is already logged in
     When user clicks Poll button
