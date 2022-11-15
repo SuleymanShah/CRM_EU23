@@ -1,0 +1,27 @@
+//*[text()='Create']
+//button[contains(text(),'Create')]
+
+(//div//input)[3]
+(//button[starts-with(@class,'dg-...'])[15]
+//*[starts-with(@class,'sg-table-row ng-tns-c')]/div[2]
+//*[starts-with(@class,'sg-table-row ng-tns-c')]/div[2]
+(//*[starts-with(@class,'st0')])[7]
+
+(//*[starts-with(@class,'ng-tns-c173')])[2]
+(//*[@id="Layer_1"])[6]
+
+(//button[@type='button'])[8]
+//*[starts-with(text(),' 50 ')]
+//span[@class='stx-ico-close']
+
+(//div//input)[7]
+
+
+
+//input[@id='loanAmount']
+
+//i[@class='icon-lock left']
+//*[starts-with(text(),'Lifespan: 3')]
+
+
+"//td[contains(text()," + "'" + index + "'" + ")]/following-sibling::td[1]"

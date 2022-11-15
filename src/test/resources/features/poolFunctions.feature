@@ -1,5 +1,6 @@
 @AGLP-1627
 
+
 Feature: Testing different functionalities of POLL feature in CRM app
   ACs:
   1. User should be able to add users from selecting multiple contacts from Employees and Departments contact lists.
@@ -9,6 +10,10 @@ Feature: Testing different functionalities of POLL feature in CRM app
   5. User should be able to delete questions and multiple answers.
   6. User should be able to provide multiple choice to attendees by selecting the Allow multiple choice checkbox.
   7. User should be able to send a poll.
+
+  Background: User is already logged in the app and clicked the 'Pool' button on the Activity Stream page
+    Given user "hr2" is already logged in
+
 
 
   Background: User is already logged in the app and clicked the 'Poll' button on the Activity Stream page
@@ -20,6 +25,7 @@ Feature: Testing different functionalities of POLL feature in CRM app
     Then user clicks Add More button
     Then clicks on Employees and departments button
     Then clicks on HR department
+
     Then clicks on All department and sub department employees check box
     And user sees added HR employees in the To box
 
@@ -59,3 +65,6 @@ Feature: Testing different functionalities of POLL feature in CRM app
 
     Then user enters a message into message area
     And user clicks Send button
+
+    And clicks on All department and sub department employees check box
+

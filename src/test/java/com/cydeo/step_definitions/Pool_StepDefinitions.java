@@ -16,8 +16,10 @@ public class Pool_StepDefinitions {
     PoolPage poolPage = new PoolPage();
 
 
-     @Given("user {string} is already logged in")
+    @Given("user {string} is already logged in")
     public void userIsAlreadyLoggedIn(String userShortName) {
+        String url= ConfigurationReader.getProperty("env");
+        Driver.getDriver().get(url);
         loginPage.loginWithValid(userShortName);
     }
 
@@ -118,6 +120,7 @@ public class Pool_StepDefinitions {
         poolPage.multipleChoiceAnswerBox2.sendKeys(ans2);
     }
 
+
     @And("user adds an answer into AnswerThree box {string}")
     public void userAddsAnAnswerIntoAnswerThreeBox(String ans3) {
         poolPage.multipleChoiceAnswerBox3.sendKeys(ans3);
@@ -170,5 +173,6 @@ public class Pool_StepDefinitions {
         BrowserUtils.verifyElementDisplayed(poolPage.hrDisplayCheck);
 
     }
+
 }
 
