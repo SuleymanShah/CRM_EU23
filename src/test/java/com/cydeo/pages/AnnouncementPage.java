@@ -97,7 +97,10 @@ public class AnnouncementPage {
     @FindBy(xpath = "(//span[@class='feed-add-post-destination-text'])[3]")
     public WebElement addHR;
 
-    @FindBy(xpath = "//span[@id='bx-b-video-blogPostForm']")
+    @FindBy(xpath = "//span[@class='popup-window-close-icon']")
+    public WebElement closeThePage;
+
+    @FindBy(xpath = "//span[@class='bxhtmled-top-bar-btn bxhtmled-button-link bxhtmled-top-bar-btn-active']/i")
     public WebElement linkIcon;
 
 

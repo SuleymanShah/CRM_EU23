@@ -8,7 +8,7 @@ Feature:
     When user click the More dropdown
     Then user click the Announcement module
 
-    When user clicks upload files icon
+    When user clicks upload the files icon
 #Given user clicks " Upload files and images" button
 #And user upload the file
 #Then user verify uploaded file
@@ -38,6 +38,7 @@ Feature:
     Then user clicks Employees and departments button
     Then user clicks HR select button
     Then user clicks All department and subdepartment employees checkbox
+    And user close the open page
 
 
   Scenario: 3. User should be able to attach link by clicking on the link icon.

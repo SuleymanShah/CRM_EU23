@@ -33,10 +33,10 @@ public class announcement_stepdefinitions {
 
         BrowserUtils.waitFor(2);
     }
+    @When("user clicks upload the files icon")
+    public void userClicksUploadTheFilesIcon() {
 
-    @When("user clicks upload files icon")
-    public void userClicksUploadFilesIcon() {
-        announcementPage.uploadFilesIcon.click();
+       announcementPage.uploadFilesIcon.click();
         BrowserUtils.waitFor(2);
 
     }
@@ -231,12 +231,17 @@ public class announcement_stepdefinitions {
 
     }
 
+    @And("user close the open page")
+    public void userCloseTheOpenPage() {
+       announcementPage.closeThePage.click();
+    }
+
     @When("user clicks Link icon")
     public void userClicksLinkIcon() {
         BrowserUtils.waitFor(2);
-       // announcementPage.linkIcon.click();
-
-       BrowserUtils.clickWithJS(announcementPage.linkIcon);
+        announcementPage.linkIcon.click();
+        BrowserUtils.waitFor(2);
+      // BrowserUtils.clickWithJS(announcementPage.linkIcon);
     }
 
 
@@ -249,5 +254,8 @@ public class announcement_stepdefinitions {
     @Then("user enter the link link URL button")
     public void userEnterTheLinkLinkURLButton() {
     }
+
+
+
 }
 
