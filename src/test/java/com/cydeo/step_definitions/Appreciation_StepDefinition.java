@@ -21,7 +21,7 @@ public class Appreciation_StepDefinition {
     @Given("user {string} is on the main page")
     public void userIsOnTheMainPage(String userShortName){
         Driver.getDriver().get(ConfigurationReader.getProperty("env"));
-        loginPage.loginWithValid("hr1");
+        loginPage.loginWithValid("hr2");
     }
 
 
