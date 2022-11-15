@@ -43,7 +43,7 @@ public class Appreciation_StepDefinition {
     }
 
 
-    @Then("user clicks upload files icon")
+    @Then("user clicks the upload files icon")
     public void user_clicks_upload_files_icon() {
         BrowserUtils.waitFor(3);
         appreciationPage.uploadButton.click();

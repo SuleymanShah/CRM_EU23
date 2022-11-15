@@ -28,7 +28,7 @@ Feature: As a user, I should be able to send appreciation by clicking
 @bug
   Scenario: User should be able to click on upload files icon to upload files and pictures
   from local disks, download from external drive, and select documents from bitrix24.
-    Then user clicks upload files icon
+    Then user clicks the upload files icon
     Then user clicks upload files and images option
     Then user uploads file and image from local disk
     Then user clicks Select document from Bitrix24
@@ -39,7 +39,7 @@ Feature: As a user, I should be able to send appreciation by clicking
     Then user should be able to have a permission message for the download from external driver
 
 
-@bug
+@AGLP-1681
   Scenario:  User should be able to add users and recipients from selecting contact
   from Employees and Departments and Recent contact lists.
   (All Employee is shown as default, it was already declared as a bug in last Sprint)
@@ -52,16 +52,14 @@ Feature: As a user, I should be able to send appreciation by clicking
     Then user clicks the Recent option
     Then user chooses the all employee and clicks on it
 
-
-
-@zd
+@AGLP-1680
   Scenario: User should be able to attach link by clicking on the link icon.
     When user clicks on the link icon
     Then user provides link URL into linkURL box
     Then user writes the link text into link text box
     Then user clicks the save button
 
-@bug
+@AGLP-1671
   Scenario: User should be able to insert videos by clicking on the video icon and entering the video URL.
     (Vimeo is working but YouTube doesn't work, there is a bug here)
     When user clicks on the Insert video icon
@@ -79,13 +77,13 @@ Feature: As a user, I should be able to send appreciation by clicking
     Then user chooses the employee hr1 and clicks on it
 
 
-@zd
+@AGLP-1679
   Scenario: User should be able to click on Visual Editor and see the editor text-bar displays
   on top of the message box.
     When user clicks on the Visual editor icon
     Then user sees the editor text bar display on top of the message box
 
-@zd
+@AGLP-1678
   Scenario: User should be able to click on the Topic icon to see the Appreciation Topic text box
   displays on top of the message box.
     When user clicks on the Topic icon
@@ -102,7 +100,7 @@ Feature: As a user, I should be able to send appreciation by clicking
   Then user gets Error message
 
 
-@zd
+@AGLP-1675
   Scenario: User should be able to add tags by selecting existing tags or creating new tags
   by clicking on the # icon. (positive scenario with #)
 
@@ -112,10 +110,11 @@ Feature: As a user, I should be able to send appreciation by clicking
     Then user clicks the Add button
     Then user sees tag are display on the Tag box
 
-  @bug
+
+  @AGLP-1676
   Scenario: User should be able to add tags by selecting existing tags or creating new tags
-  by clicking on the # icon. (Negative for (@ or without) intellij to pass,
-  user cannot tag without # icon, there is a bug. Bug ticket for negative tests in Jira.)
+  by clicking on the # icon. (Negative test, user can tag without # icon, there is a bug.
+  Bug ticket for negative tests in Jira.)
 
     When user clicks on the # icon
     Then user sees Tags bar is displayed
@@ -124,8 +123,7 @@ Feature: As a user, I should be able to send appreciation by clicking
     Then user sees tag are display on the Tag box
 
 
-
-  @zd
+  @AGLP-1674
   Scenario: User should be able to see all types of appreciation illustration/emojis by clicking
   on the existing illustration/emojis.
     When user clicks on the illustration emojis
