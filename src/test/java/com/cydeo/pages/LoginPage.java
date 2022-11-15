@@ -83,25 +83,5 @@ public class LoginPage {
         userLogin("marketing2");
     }
 
-    public void helpdesk_Login1() {
-        userLogin("helpdesk1");
-    }
-
-    public void marketing_Login1() {
-        userLogin("marketing1");
-    }
-
-    public void HR_Login2(String username) {
-        userLogin("hr2");
-    }
-
-    public void helpdesk_Login2() {
-        userLogin("helpdesk2");
-    }
-
-    public void marketing_Login2() {
-        userLogin("marketing2");
-    }
-
-
+    
 }
