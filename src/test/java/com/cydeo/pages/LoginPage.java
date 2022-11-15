@@ -51,14 +51,6 @@ public class LoginPage {
         inputUsername.sendKeys(ConfigurationReader.getProperty(userName));
         inputPassword.sendKeys(ConfigurationReader.getProperty("pw"));
         loginButton.click();
-
-    }
-
-    private void userLogin(String userName) {
-        Driver.getDriver().get(ConfigurationReader.getProperty("env"));
-        inputUsername.sendKeys(ConfigurationReader.getProperty(userName));
-        inputPassword.sendKeys(ConfigurationReader.getProperty("pw"));
-        loginButton.click();
     }
     public void HR_Login1(String username) {
         userLogin("hr1");
