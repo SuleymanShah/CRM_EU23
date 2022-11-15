@@ -1,10 +1,21 @@
-Feature: Testing different functionalities of POOL feature in CRM app
+@AGLP-1627
 
-  Background: User is already logged in the app and clicked the 'Pool' button on the Activity Stream page
-    Given user "hr1" is already logged in
+Feature: Testing different functionalities of POLL feature in CRM app
+  ACs:
+  1. User should be able to add users from selecting multiple contacts from Employees and Departments contact lists.
+  2. User should be able to attach link by clicking on the link icon.
+  3. User should be able to add mention by clicking on the add mention icon.
+  4. User should be able to add questions and multiple answers.
+  5. User should be able to delete questions and multiple answers.
+  6. User should be able to provide multiple choice to attendees by selecting the Allow multiple choice checkbox.
+  7. User should be able to send a poll.
+
+
+  Background: User is already logged in the app and clicked the 'Poll' button on the Activity Stream page
+    Given user "marketing2" is already logged in
     When user clicks Poll button
 
-  @Sce1
+  @Sce1 @Smoke
   Scenario: User should be able to add multiple users from Employees and Departments contact lists.
     Then user clicks Add More button
     Then clicks on Employees and departments button
@@ -12,14 +23,14 @@ Feature: Testing different functionalities of POOL feature in CRM app
     Then clicks on All department and sub department employees check box
     And user sees added HR employees in the To box
 
-  @Sce2
+  @Sce2 @Smoke
   Scenario: User should be able to attach link by clicking on the link icon
     Then user clicks link button
     Then user sees a popup message containing link and link-name boxes
     Then user inserts link_name "Ahmet Ozhan" and link_URL "https://www.youtube.com/watch?v=3yBVmnPZwSU"
     And user sees link formed in messaging area
 
-  @Sce3
+  @Sce3 @Smoke
   Scenario: User should be able to add mention by clicking on the add mention icon
     Then user clicks add mention icon
     Then user sees a popup box message containing a link to Employees and departments

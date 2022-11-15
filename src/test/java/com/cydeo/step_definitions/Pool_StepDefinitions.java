@@ -3,7 +3,6 @@ package com.cydeo.step_definitions;
 import com.cydeo.pages.LoginPage;
 import com.cydeo.pages.PoolPage;
 import com.cydeo.utilities.BrowserUtils;
-import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -69,7 +68,6 @@ public class Pool_StepDefinitions {
     public void userSeesLinkFormedInMessagingArea() {
         Driver.getDriver().switchTo().frame(poolPage.messageBox);
         String link_Name = poolPage.messageBoxInside.getText();
-         System.out.println(link_Name);
         Assert.assertTrue(link_Name, true);
 
         Driver.getDriver().switchTo().parentFrame();
@@ -140,10 +138,7 @@ public class Pool_StepDefinitions {
     @And("user sees empty question box")
     public void userSeesEmptyQuestionBox() {
         String textInsideInputBox = poolPage.multipleChoiceQuestionBox.getAttribute("value");
-// Check whether input field is blank
-        if (textInsideInputBox.isEmpty()) {
-            System.out.println("Question field is empty");
-        }
+        Assert.assertTrue(textInsideInputBox.isEmpty());
     }
 
     @When("user checks multiple choice checkbox")
