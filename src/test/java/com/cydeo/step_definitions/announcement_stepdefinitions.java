@@ -1,6 +1,7 @@
 package com.cydeo.step_definitions;
 
 import com.cydeo.pages.AnnouncementPage;
+import com.cydeo.pages.AppreciationPage;
 import com.cydeo.pages.LoginPage;
 import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.ConfigurationReader;
@@ -16,7 +17,7 @@ import org.openqa.selenium.WebElement;
 public class announcement_stepdefinitions {
     LoginPage loginPage = new LoginPage();
     AnnouncementPage announcementPage = new AnnouncementPage();
-
+    AppreciationPage appreciationPage= new AppreciationPage();
 
     @When("user click the More dropdown")
     public void user_click_the_more_dropdown() {
@@ -117,7 +118,7 @@ public class announcement_stepdefinitions {
 
     // @Then("user verify uploaded file")
     // public void userVerifyUploadedFile() {
-    // }
+  //  }
 
     @Then("user verify notification on the screen")
     public void userVerifyNotificationOnTheScreen() {
@@ -131,12 +132,17 @@ public class announcement_stepdefinitions {
         BrowserUtils.waitFor(2);
 
 
-        //@And("user close the page")
-        // public void userCloseThePage() {
-        //  BrowserUtils.waitFor(3);
+       // @And("user close the page")
+        //public void userCloseThePage() {
+           // BrowserUtils.waitFor(3);
+        }
 
-        // announcementPage.cross.click();
-        announcementPage.selectDocument.click();
+    @And("user close the boxpage")
+    public void userCloseTheBoxpage() {
+
+
+         announcementPage.cross.click();
+       // announcementPage.selectDocument.click();
     }
 
 
@@ -239,7 +245,7 @@ public class announcement_stepdefinitions {
     @When("user clicks Link icon")
     public void userClicksLinkIcon() {
         BrowserUtils.waitFor(2);
-        announcementPage.linkIcon.click();
+        announcementPage.theLinkIcon.click();
         BrowserUtils.waitFor(2);
       // BrowserUtils.clickWithJS(announcementPage.linkIcon);
     }
@@ -247,12 +253,59 @@ public class announcement_stepdefinitions {
 
     @Given("user enter the text on Link text button")
     public void userEnterTheTextOnLinkTextButton() {
-
+     announcementPage.UrlTextBox.sendKeys("Amazon");
 
     }
 
     @Then("user enter the link link URL button")
     public void userEnterTheLinkLinkURLButton() {
+
+        announcementPage.UrlBox.sendKeys("https://www.amazon.co.uk/");
+    }
+
+
+    @Then("user clicks the  save button")
+    public void userClicksTheSaveButton() {
+
+        announcementPage.clickSaveBtn.click();
+    }
+
+    @When("user clicks Insert video icon")
+    public void userClicksInsertVideoIcon() {
+        announcementPage.insertVideoIc.click();
+
+    }
+
+    @Then("user add the URL on the Video source button for YouTube")
+    public void userAddTheURLOnTheVideoSourceButtonForYouTube() {
+        announcementPage.insertVideoText.sendKeys("https://www.youtube.com/watch?v=q63VbUKxuLw");
+
+    }
+
+    @Then("user click save button")
+    public void userClickSaveButton() {
+        announcementPage.saveBt.click();
+
+
+    }
+    @Then("user clicks Insert the video icon")
+    public void userClicksInsertTheVideoIcon() {
+        announcementPage.insertVideoIc.click();
+    }
+
+
+    @Then("user add URL on the Video source button for Vimeo")
+    public void userAddURLOnTheVideoSourceButtonForVimeo() {
+        announcementPage.insertVideoText.sendKeys("https://vimeo.com/251458060");
+
+    }
+
+
+    @Then("user clicks save  button")
+    public void userClicksSaveButton() {
+        announcementPage.saveBt.click();
+
+
     }
 
 
