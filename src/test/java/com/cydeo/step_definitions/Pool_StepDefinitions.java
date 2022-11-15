@@ -18,8 +18,6 @@ public class Pool_StepDefinitions {
 
     @Given("user {string} is already logged in")
     public void userIsAlreadyLoggedIn(String userShortName) {
-        String url= ConfigurationReader.getProperty("env");
-        Driver.getDriver().get(url);
         loginPage.loginWithValid(userShortName);
     }
 
