@@ -1,6 +1,5 @@
 package com.cydeo.pages;
 
-import com.cydeo.utilities.Driver;
 import org.apache.commons.collections.CollectionUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -78,6 +77,12 @@ public class CalendarPage {
         @FindBy(xpath = "//input[@name=\"lo_cation\"]")
         public WebElement locationDropdown;
 
+        @FindBy(xpath = "//span[.='Main Meeting Room']")
+        public WebElement mainMeetingRoom;
+
+        @FindBy(xpath = "//div[.='Main Meeting Room' and @class=\"calendar-slider-detail-place-name\"]")
+        public WebElement mainMeetingRoomAssert;
+
         @FindBy(xpath = "//span[contains(@id,'slider-destination-link')]")
         public WebElement attendeesAddMoreButton;
 
@@ -92,9 +97,6 @@ public class CalendarPage {
 
         @FindBy(xpath = "//div[.='Attendees']")
         public WebElement afterAddAttendeesClick;
-
-        @FindBy(className = "popup-window-close-icon")
-        public WebElement employeesAndDepartmentsCloseButton;
 
         @FindBy(xpath = "//span[@data-id=\"U493\"]")
         public WebElement helpdesk3IsDisplayed;
@@ -147,11 +149,6 @@ public class CalendarPage {
         @FindBy(xpath = "//div[.='Undecided']")
         public WebElement unsureOptionAssertion;
 
-        @FindBy(xpath = "//option[.=\"Available\"]")
-        public WebElement availableOption;
-
-        @FindBy(xpath = "//option[.=\"Away (Add to absence chart)\"]")
-        public WebElement awayOption;
         @FindBy(xpath = "//span[.='(Ctrl+Enter)']")
         public WebElement saveButton;
 
@@ -160,6 +157,9 @@ public class CalendarPage {
 
         @FindBy(xpath = "//div[.='Private Event']")
         public WebElement privateEventAssertion;
+
+        @FindBy(xpath = "//span[.='All event instances']")
+        public WebElement allEventInstancesButton;
 
         @FindBy(xpath = "//span[.='25']")
         public WebElement marketing25AugustDisplay;
@@ -188,8 +188,8 @@ public class CalendarPage {
         @FindBy(xpath = "//span[.=\"Edit\"]")
         public WebElement newEventEditButton;
 
-        @FindBy(xpath = "//button[.=\"Edit\"]")
-        public WebElement editButton;
+        @FindBy(xpath = "//span[.='Edit Event']")
+        public WebElement editEventTitle;
 
         @FindBy(id = "calendar-filter-personal_search")
         public WebElement filterAndSearchInput;
@@ -208,6 +208,17 @@ public class CalendarPage {
 
         @FindBy(xpath = "//div[@data-name='IS_MEETING' and @data-params='{\"isMulti\":false}']")
         public WebElement eventWithParticipantsMenu;
+
+        @FindBy(xpath = "//div[@data-item='{\"NAME\":\"Yes\",\"VALUE\":\"Y\"}']")
+        public WebElement eventWithParticipantYesButton;
+
+        @FindBy(xpath = "//span[@class=\"ui-btn ui-btn-light-border main-ui-filter-field-button main-ui-filter-reset\"]")
+        public WebElement resetButton;
+
+        @FindBy(xpath = "//input[@placeholder=\"Filter and search\"]")
+        public WebElement eventWithParticipantsAssert;
+
+
 
         public void assertActivityStreamPage(){
                 WebDriverWait wait = new WebDriverWait(WEB_DRIVER, 10);
