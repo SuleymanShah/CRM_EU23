@@ -107,35 +107,38 @@ public class Calendar_StepDefinition {
         }
 
     }
-    @When("user sets -Location- as -Main Meeting Room-")
-    public void user_sets_location_as_main_meeting_room() {
 
+    @When("user sets -Location- as Main Meeting Room")
+    public void user_sets_location_as_main_meeting_room() {
+        calendarPage.locationDropdown.click();
+        calendarPage.mainMeetingRoom.click();
     }
-    @When("user adds {string} and {string} as attendees")
-    public void user_adds_and_as_attendees(String marketing, String helpdesk) {
+
+    @When("user adds -marketing3@cybertekschool.com- and -helpdesk3@cybertekschool.com- as attendees")
+    public void user_adds_and_as_attendees() {
         calendarPage.attendeesAddMoreButton.click();
         calendarPage.employeesAndDepartmentsLink.click();
         BrowserUtils.clickWithJS(calendarPage.marketing3);
         BrowserUtils.clickWithJS(calendarPage.helpdesk3);
-        BrowserUtils.sleep(2);
         calendarPage.afterAddAttendeesClick.click();
         Assert.assertTrue(calendarPage.helpdesk3IsDisplayed.isDisplayed());
         Assert.assertTrue(calendarPage.marketing3IsDisplayed.isDisplayed());
     }
     @When("user clicks -More- button,at the bottom of the -New Event- page")
     public void user_clicks_more_button_at_the_bottom_of_the_new_event_page() {
+        BrowserUtils.scrollToElement(calendarPage.moreButton);
         calendarPage.moreButton.click();
     }
-    @When("user enters description as {string}")
-    public void user_enters_description_as(String description) {
+    @When("user enters description such as {string}")
+    public void user_enters_description_such_as(String description) {
         Driver.getDriver().switchTo().frame(calendarPage.descriptionIframe);
         BrowserUtils.scrollToElement(calendarPage.descriptionInput);
         calendarPage.descriptionInput.sendKeys(description);
         Assert.assertEquals(description, calendarPage.afterDescriptionInputEnter.getText());
         Driver.getDriver().switchTo().parentFrame();
     }
-    @When("user sets task color as {string}")
-    public void user_sets_task_color_as(String string) {
+    @When("user sets task color as Pink")
+    public void user_sets_task_color_as_pink() {
         calendarPage.eventColorPink.click();
         Assert.assertTrue(calendarPage.afterSelectColorPink.isDisplayed());
     }
@@ -170,14 +173,19 @@ public class Calendar_StepDefinition {
     @When("user clicks -Edit- button")
     public void user_clicks_edit_button() {
         calendarPage.newEventEditButton.click();
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),20);
+        wait.until(ExpectedConditions.alertIsPresent());
+        Alert alert = Driver.getDriver().switchTo().alert();
+        alert.accept();
+        wait.until(ExpectedConditions.visibilityOf(calendarPage.editEventTitle));
     }
     @When("user clicks -other color-")
     public void user_clicks_other_color() {
         BrowserUtils.scrollToElement(calendarPage.otherColorButton);
         calendarPage.otherColorButton.click();
     }
-    @Then("user edits task color as {string}")
-    public void user_edits_task_color_as(String string) {
+    @Then("user edits task color as Navy Blue")
+    public void user_edits_task_color_as_navy_blue() {
         calendarPage.eventColorNavyBlue.click();
         Assert.assertTrue(calendarPage.afterSelectColorNavyBlue.isDisplayed());
         calendarPage.saveButton.click();
@@ -194,6 +202,7 @@ public class Calendar_StepDefinition {
     @Then("user clicks -Save- button and edit the event as private")
     public void user_clicks_save_button_and_edit_the_event_as_private() {
         calendarPage.saveButton.click();
+        calendarPage.allEventInstancesButton.click();
         for (int i = 0; i < 3; i++) {
             calendarPage.calendarNavigationPreviousMonth.click();
         }
@@ -229,12 +238,13 @@ public class Calendar_StepDefinition {
     @Then("user clicks the -Save- button and edit the event as availability is Unsure")
     public void user_clicks_the_save_button_and_edit_the_event_as_availability_is_unsure() {
         calendarPage.saveButton.click();
+        calendarPage.allEventInstancesButton.click();
         for (int i = 0; i < 3; i++) {
             calendarPage.calendarNavigationPreviousMonth.click();
         }
         BrowserUtils.clickWithJS(calendarPage.newEvent25AugustButton);
         calendarPage.newEventOpenButton.click();
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
         wait.until(ExpectedConditions.visibilityOf(calendarPage.newEventPageTitle));
         Assert.assertTrue(calendarPage.unsureOptionAssertion.isDisplayed());
     }
@@ -251,10 +261,6 @@ public class Calendar_StepDefinition {
 
     @When("user deletes attendees")
     public void user_deletes_attendees() {
-        BrowserUtils.sleep(15);
-        Alert alert = Driver.getDriver().switchTo().alert();
-        alert.accept();
-
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
         wait.until(ExpectedConditions.visibilityOf(calendarPage.repeatDropdown));
         BrowserUtils.scrollToElement(calendarPage.attendeesAddMoreButton);
@@ -273,8 +279,8 @@ public class Calendar_StepDefinition {
 
     }
 
-    @When("user adds {string} as attendee")
-    public void user_adds_as_attendee(String string) {
+    @When("user adds -hr11@cybertekschool.com- as attendee")
+    public void user_adds_hr11_cybertekschool_com_as_attendee() {
         calendarPage.attendeesAddMoreButton.click();
         calendarPage.employeesAndDepartmentsLink.click();
         BrowserUtils.clickWithJS(calendarPage.helpdesk11);
@@ -306,13 +312,32 @@ public class Calendar_StepDefinition {
 
     @When("user clicks -I'M AN ORGANISER- button")
     public void user_clicks_i_m_an_organiser_button() {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+        wait.until(ExpectedConditions.visibilityOf(calendarPage.ImAnOrganiserButton));
         calendarPage.ImAnOrganiserButton.click();
     }
 
 
-    @Then("user should events and task")
-    public void user_should_events_and_task() {
+    @Then("user should see these events and task")
+    public void user_should_see_these_events_and_task() {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+        wait.until(ExpectedConditions.visibilityOf(calendarPage.ImAnOrganiserDisplay));
         Assert.assertTrue(calendarPage.ImAnOrganiserDisplay.isDisplayed());
     }
+
+    @When("user clicks -Event with participants- menu")
+    public void user_clicks_event_with_participants_menu() {
+        calendarPage.eventWithParticipantsMenu.click();
+        calendarPage.eventWithParticipantYesButton.click();
+    }
+    @When("user click -reset- button")
+    public void user_click_reset_button() {
+        calendarPage.resetButton.click();
+    }
+    @Then("user can reset search preferences")
+    public void user_can_reset_search_preferences() {
+        Assert.assertTrue(calendarPage.eventWithParticipantsAssert.isDisplayed());
+    }
+
 
 }

@@ -16,12 +16,12 @@ Feature:CRM application calendar feature
     When user sets the event start date and time
     When user sets event end date
     When user sets the -Time zone- as "(UTC) Europe/London"
-    When user sets -Repeat- as "yearly"
-    When user sets -Location- as -Main Meeting Room-
-    When user adds "marketing3@cybertekschool.com" and "helpdesk3@cybertekschool.com" as attendees
+    When user sets -Repeat- as "Yearly"
+    When user sets -Location- as Main Meeting Room
+    When user adds -marketing3@cybertekschool.com- and -helpdesk3@cybertekschool.com- as attendees
     When user clicks -More- button,at the bottom of the -New Event- page
-    When user enters description as "MY_FIRST_DESCRIPTION_OF_BIRTHDAY"
-    When user sets task color as "Pink"
+    When user enters description such as "MY_FIRST_DESCRIPTION_OF_BIRTHDAY"
+    When user sets task color as Pink
     When user sets -Availability- as "Occupied"
     Then user clicks -Save- button and set the event on Calendar
 
@@ -33,7 +33,7 @@ Feature:CRM application calendar feature
     When user clicks -Edit- button
     When user clicks -More- button,at the bottom of the -New Event- page
     When user clicks -other color-
-    Then user edits task color as "Navy Blue"
+    Then user edits task color as Navy Blue
 
 
   Scenario: HR User can edit the 1st AC's privacy as "Private event"
@@ -52,7 +52,7 @@ Feature:CRM application calendar feature
     When user goes to 25 August on Calendar
     Then user should not see the private event
 
-
+  @tugba
   Scenario: HR User can edit his/her availability from "Occupied" to "Unsure"
     Given "hr1" user is on the home page
     When user clicks -Calendar- button on the left side of the page
@@ -86,7 +86,7 @@ Feature:CRM application calendar feature
     When user clicks -Calendar- button on the left side of the page
     When user goes to 25 August on Calendar and clicks New Event
     When user clicks -Edit- button
-    When user adds "hr11@cybertekschool.com" as attendee
+    When user adds -hr11@cybertekschool.com- as attendee
     Then user clicks the -Save- button and edit the event with one more attendee
 
 
@@ -103,11 +103,13 @@ Feature:CRM application calendar feature
     When user clicks -Calendar- button on the left side of the page
     When user clicks -Filter and search- box
     When user clicks -I'M AN ORGANISER- button
-    Then user should events and task
+    Then user should see these events and task
 
-  @tugba
+
   Scenario: Helpdesk User can reset after selecting "Yes" under "Event with participants" menu
     Given "helpdesk1" user is on the home page
     When user clicks -Calendar- button on the left side of the page
     When user clicks -Filter and search- box
-    When user clicks -Event with participants menu
+    When user clicks -Event with participants- menu
+    When user click -reset- button
+    Then user can reset search preferences
