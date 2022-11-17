@@ -80,9 +80,6 @@ public class CalendarPage {
         @FindBy(xpath = "//span[.='Main Meeting Room']")
         public WebElement mainMeetingRoom;
 
-        @FindBy(xpath = "//div[.='Main Meeting Room' and @class=\"calendar-slider-detail-place-name\"]")
-        public WebElement mainMeetingRoomAssert;
-
         @FindBy(xpath = "//span[contains(@id,'slider-destination-link')]")
         public WebElement attendeesAddMoreButton;
 
@@ -169,12 +166,6 @@ public class CalendarPage {
 
         @FindBy(xpath = "//span[@data-item-id=\"U493\"]")
         public WebElement helpdesk3DeleteButton;
-
-        @FindBy(xpath = "//span[.='helpdesk3@cybertekschool.com' and @bx-tooltip-classname=\"calendar-planner-user-tooltip\"]")
-        public WebElement helpdesk3AssertAfterDelete;
-
-        @FindBy(xpath = "//span[.='marketing3@cybertekschool.com' and @bx-tooltip-classname=\"calendar-planner-user-tooltip\"]")
-        public WebElement marketing3AssertAfterDelete;
 
         @FindBy(className = "calendar-navigation-previous")
         public WebElement calendarNavigationPreviousMonth;
