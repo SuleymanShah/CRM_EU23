@@ -110,7 +110,7 @@ public class Calendar_StepDefinition {
     @When("user sets -Location- as Main Meeting Room")
     public void user_sets_location_as_main_meeting_room() {
         calendarPage.locationDropdown.click();
-        calendarPage.mainMeetingRoom.click();
+        calendarPage.centralMeetingRoom.click();
     }
 
     @When("user adds -marketing3@cybertekschool.com- and -helpdesk3@cybertekschool.com- as attendees")
@@ -159,6 +159,7 @@ public class Calendar_StepDefinition {
         for (int i = 0; i < 3; i++) {
             calendarPage.calendarNavigationPreviousMonth.click();
         }
+        BrowserUtils.clickWithJS(calendarPage.newEvent25AugustButton);
         Assert.assertTrue(calendarPage.newEvent25AugustButton.isDisplayed());
     }
 
