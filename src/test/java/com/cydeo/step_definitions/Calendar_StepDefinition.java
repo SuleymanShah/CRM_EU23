@@ -8,7 +8,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -174,9 +173,9 @@ public class Calendar_StepDefinition {
     public void user_clicks_edit_button() {
         calendarPage.newEventEditButton.click();
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(),20);
-        wait.until(ExpectedConditions.alertIsPresent());
-        Alert alert = Driver.getDriver().switchTo().alert();
-        alert.accept();
+        //wait.until(ExpectedConditions.alertIsPresent());
+        //Alert alert = Driver.getDriver().switchTo().alert();
+        //alert.accept();
         wait.until(ExpectedConditions.visibilityOf(calendarPage.editEventTitle));
     }
     @When("user clicks -other color-")
@@ -203,9 +202,6 @@ public class Calendar_StepDefinition {
     public void user_clicks_save_button_and_edit_the_event_as_private() {
         calendarPage.saveButton.click();
         calendarPage.allEventInstancesButton.click();
-        for (int i = 0; i < 3; i++) {
-            calendarPage.calendarNavigationPreviousMonth.click();
-        }
         BrowserUtils.clickWithJS(calendarPage.newEvent25AugustButton);
         calendarPage.newEventOpenButton.click();
         Assert.assertTrue(calendarPage.privateEventAssertion.isDisplayed());
@@ -239,9 +235,6 @@ public class Calendar_StepDefinition {
     public void user_clicks_the_save_button_and_edit_the_event_as_availability_is_unsure() {
         calendarPage.saveButton.click();
         calendarPage.allEventInstancesButton.click();
-        for (int i = 0; i < 3; i++) {
-            calendarPage.calendarNavigationPreviousMonth.click();
-        }
         BrowserUtils.clickWithJS(calendarPage.newEvent25AugustButton);
         calendarPage.newEventOpenButton.click();
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
@@ -252,6 +245,7 @@ public class Calendar_StepDefinition {
     @Then("user clicks the -Save- button and edit the event repeats daily")
     public void user_clicks_the_save_button_and_edit_the_event_repeats_daily() {
         calendarPage.saveButton.click();
+        calendarPage.allEventInstancesButton.click();
         BrowserUtils.clickWithJS(calendarPage.newEvent25AugustButton);
         calendarPage.newEventOpenButton.click();
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
@@ -270,6 +264,7 @@ public class Calendar_StepDefinition {
     @Then("user clicks the -Save- button and edit the event")
     public void user_clicks_the_save_button_and_edit_the_event() {
         calendarPage.saveButton.click();
+        calendarPage.allEventInstancesButton.click();
         BrowserUtils.clickWithJS(calendarPage.newEvent25AugustButton);
         calendarPage.newEventOpenButton.click();
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
@@ -287,13 +282,14 @@ public class Calendar_StepDefinition {
         BrowserUtils.sleep(2);
         calendarPage.afterAddAttendeesClick.click();
     }
-    @Then("user clicks the -Save- button and edit the event with one more attendee")
-    public void user_clicks_the_save_button_and_edit_the_event_with_one_more_attendee() {
+    @Then("user clicks the -Save- button and can edit the event with one more attendee")
+    public void user_clicks_the_save_button_and_can_edit_the_event_with_one_more_attendee() {
         calendarPage.saveButton.click();
+        calendarPage.allEventInstancesButton.click();
         BrowserUtils.clickWithJS(calendarPage.newEvent25AugustButton);
         calendarPage.newEventOpenButton.click();
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
-        wait.until(ExpectedConditions.visibilityOf(calendarPage.newEventPageTitle));
+        wait.until(ExpectedConditions.visibilityOf(calendarPage.helpdesk11));
         Assert.assertTrue(calendarPage.helpdesk11IsDisplayed.isDisplayed());
     }
 
