@@ -77,8 +77,8 @@ public class CalendarPage {
         @FindBy(xpath = "//input[@name=\"lo_cation\"]")
         public WebElement locationDropdown;
 
-        @FindBy(xpath = "//span[.='Main Meeting Room']")
-        public WebElement mainMeetingRoom;
+        @FindBy(xpath = "//span[.='Central Meeting Room' and @class=\"menu-popup-item-text\"]")
+        public WebElement centralMeetingRoom;
 
         @FindBy(xpath = "//span[contains(@id,'slider-destination-link')]")
         public WebElement attendeesAddMoreButton;

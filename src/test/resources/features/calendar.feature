@@ -7,7 +7,7 @@ Feature:CRM application calendar feature
 
   Accounts are: HR, Helpdesk, Marketing
 
-  @AGLP-1689 @SMOKE
+  @AGLP-1689
   Scenario: HR User can add new important repeating event
   with description by specifying the start-end dates in the specific time zones,
   adding certain location, adding attendees, color as "Pink" and availability as "Occupied"
@@ -91,7 +91,7 @@ Feature:CRM application calendar feature
     When user adds -hr11@cybertekschool.com- as attendee
     Then user clicks the -Save- button and can edit the event with one more attendee
 
-  @AGLP-1697 @SMOKE
+  @AGLP-1697
   Scenario: Marketing User can display the invitations by using "Filter and search" box after clicking "Invitations" button
     Given "marketing1" user is on the home page
     When user clicks -Calendar- button on the left side of the page
