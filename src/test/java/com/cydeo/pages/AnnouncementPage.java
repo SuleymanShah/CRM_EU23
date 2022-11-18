@@ -211,6 +211,7 @@ public class AnnouncementPage {
     public WebElement addAsia;
 
 
+
     @FindBy(xpath = "//*[text()='wang']")
     public WebElement addWang;
 

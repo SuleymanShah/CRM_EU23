@@ -97,6 +97,7 @@ Feature:As a user, I should be able to send announcement from Announcement subhe
     When user clicks on  Visual editor icon
     Then user sees  editor text bar display on top of the message box
 
+
   @AGLP-1732
   Scenario: 8. User should be able to click on the Topic icon to see the announcement Topic text box displays on top of
   the message box.
