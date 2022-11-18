@@ -342,6 +342,7 @@ public class Announcement_stepDefinitions {
         announcementPage.close.click();
     }
 
+
     @When("user clicks on  # icon")
     public void userClicksOnIcon() {
         announcementPage.clicktag.click();
