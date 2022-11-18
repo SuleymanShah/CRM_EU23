@@ -35,13 +35,11 @@ public class announcement_stepdefinitions {
     @Then("user click the Announcement module")
     public void user_click_the_announcement_module() {
         announcementPage.announcementButton.click();
-
         waitFor(2);
     }
 
     @When("user clicks upload the files icon")
     public void userClicksUploadTheFilesIcon() {
-
         announcementPage.uploadFilesIcon.click();
         waitFor(2);
 
@@ -50,71 +48,9 @@ public class announcement_stepdefinitions {
 
     @Then("user clicks Download from external drive button")
     public void userClicksDownloadFromExternalDriveButton() {
-
         announcementPage.downloadFromExternalDrive.click();
-
-
     }
 
-    //@And("user upload the file")
-    // public void userUploadTheFile() {
-    //  BrowserUtils.waitFor(2);
-
-
-    //2. Find some small file from your computer, and get the path of it.
-    //String path = "/Users/aktan/Desktop/Papatya.png";
-
-
-    //3. Upload the file.
-    // WebElement fileUpload = announcementPage.uploadFilesAndImageModule;
-    //  BrowserUtils.waitFor(2);
-
-
-    //fileUpload.click();
-    //BrowserUtils.sleep(2);
-
-
-    //  BrowserUtils.clickWithJS(announcementPage.uploadFilesAndImageModule);
-
-
-    // BrowserUtils.sleep(2);
-    //announcementPage.uploadFilesAndImageModule.click();
-
-    //announcementPage.uploadFilesAndImageModule.sendKeys("/Users/aktan/Desktop/locetors.txt");
-
-
-    // WebElement uploadButton = Driver.getDriver().findElement(By.id("file-submit"));
-    //uploadButton.click();
-
-    //4. Assert:
-    //-File uploaded text is displayed on the page
-    // WebElement fileUploadedHeader = Driver.getDriver().findElement(By.tagName("h3"));
-    //Assert.assertTrue(fileUploadedHeader.isDisplayed());
-    //driver.get("http://practice.cybertekschool.com/upload");
-    //locating  choose file button
-    //WebElement chooseFile=driver.findElement(By.name("file"));
-
-    //sending file with sendKeys method
-    //chooseFile.sendKeys("/Users/ilhanaltan/Desktop/file.txt");
-    // System.out.println(System.getProperty("user.dir"));
-
-    //  String projectPath = System.getProperty("user.dir");
-    //  String filePath = "src/test/resources/locetors.txt";
-    //  String fullPath = projectPath + "/" + filePath;
-    //  fileUpload.sendKeys(fullPath);
-
-    ///Users/aktan/IdeaProjects/CRM_EU23/src/test/resources
-
-    //clicking uopload button
-    //driver.findElement(By.id("file-submit")).click();
-    //getting the file name from browser
-    //String actualFileName=driver.findElement(By.id("uploaded-files")).getText();
-
-    //verify file name is file.txt
-    // Assert.assertEquals(actualFileName,"textfile.txt");
-
-
-    // }
 
     @Then("user click Box button")
     public void userClickBoxButton() {
@@ -122,9 +58,6 @@ public class announcement_stepdefinitions {
         announcementPage.boxButton.click();
     }
 
-    // @Then("user verify uploaded file")
-    // public void userVerifyUploadedFile() {
-    //  }
 
     @Then("user verify notification on the screen")
     public void userVerifyNotificationOnTheScreen() {
@@ -180,9 +113,7 @@ public class announcement_stepdefinitions {
     public void userVerifyTheMessageAttachedFile() {
         String expectedResul = "Papatya (2).png";
         String actualResult = announcementPage.attachedFilesAndImages.getText();
-
         Assert.assertEquals(expectedResul, actualResult);
-
         System.out.println("announcementPage.attachedFilesAndImages = " + announcementPage.attachedFilesAndImages.getText());
     }
 
@@ -191,8 +122,6 @@ public class announcement_stepdefinitions {
         // BrowserUtils.waitFor(2);
         announcementPage.addMore.click();
     }
-
-
 
 
     @Then("user choose user from the list")
@@ -210,8 +139,6 @@ public class announcement_stepdefinitions {
     @Then("user close the Recent page")
     public void userCloseTheRecentPage() {
         announcementPage.closeRecentPage.click();
-
-
         waitFor(2);
         announcementPage.addMore.click();
     }
@@ -254,7 +181,7 @@ public class announcement_stepdefinitions {
         waitFor(2);
         announcementPage.theLinkIcon.click();
         waitFor(2);
-        // BrowserUtils.clickWithJS(announcementPage.linkIcon);
+
     }
 
 
@@ -272,28 +199,9 @@ public class announcement_stepdefinitions {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @Given("user clicks  Insert video icon")
-    public void userClicksInsertVideoIcon() { announcementPage.insertVideoIc.click();
+    public void userClicksInsertVideoIcon() {
+        announcementPage.insertVideoIc.click();
     }
 
 
@@ -301,9 +209,9 @@ public class announcement_stepdefinitions {
     public void userAddURLOnTheVideoSourceButtonForVimeo() {
 
 
-            waitFor(2);
-            announcementPage.insertVideoText.sendKeys("https://vimeo.com/768009877");
-            waitFor(2);
+        waitFor(2);
+        announcementPage.insertVideoText.sendKeys("https://vimeo.com/768009877");
+        waitFor(2);
 
 
     }
@@ -317,6 +225,7 @@ public class announcement_stepdefinitions {
 
 
     }
+
     @When("user click SEND button")
     public void userClickSENDButton() {
 
@@ -324,15 +233,6 @@ public class announcement_stepdefinitions {
     }
 
 
-    ////@And("user click the video cross")
-   // public void userClickTheVideoCross() {
-   //
-          //  waitFor(2);
-           // announcementPage.videoCross.click();
-           // waitFor(2);
-
-
-    //}
     @Then("user verify the video")
     public void userVerifyTheVideo() {
 
@@ -342,54 +242,35 @@ public class announcement_stepdefinitions {
         Assert.assertEquals(expectedResul, actualResult);
         System.out.println("announcementPage.verfyVideoFromVimeo = " + announcementPage.verfyVideoFromVimeo.getText());
 
-
     }
-
-
-
-
-
-
-
-
-
 
 
     @When("user clicks comma icon")
     public void userClicksCommaIcon() {
 
         announcementPage.commaIcon.click();
-
     }
 
     @Then("quote area is displayed on the page")
     public void quoteAreaIsDisplayedOnThePage() {
         announcementPage.writeQuote.isDisplayed();
 
-
     }
 
-   @Then("user add the quote on the quote button")
+    @Then("user add the quote on the quote button")
     public void userAddTheQuoteOnTheQuoteButton() {
         waitFor(3);
         announcementPage.writeQuote.sendKeys("Hi");
 
 
-   }
-
-
-
-
-
+    }
 
     @Then("user click  Send Button")
     public void userClickSendButton() {
 
         announcementPage.clickSendBtn.click();
-
-
-
     }
+
 
     @Given("user click the add mention icon")
     public void userClickTheAddMentionIcon() {
@@ -417,7 +298,6 @@ public class announcement_stepdefinitions {
 
     @Then("user sees  editor text bar display on top of the message box")
     public void userSeesEditorTextBarDisplayOnTopOfTheMessageBox() {
-
         announcementPage.visualToolBar.isDisplayed();
     }
 
@@ -435,13 +315,13 @@ public class announcement_stepdefinitions {
         BrowserUtils.waitFor(3);
         String expected = announcementPage.topicTitle.getAttribute("placeholder");
         BrowserUtils.waitFor(3);
-        Assert.assertEquals(expected,"Topic");
+        Assert.assertEquals(expected, "Topic");
     }
 
     @When("user clicks on  Record Video tab")
     public void userClicksOnRecordVideoTab() {
         announcementPage.recordVideoIcon.click();
-        
+
     }
 
     @Then("user sees popup message about  access permission")
@@ -456,36 +336,14 @@ public class announcement_stepdefinitions {
         announcementPage.closebtn.click();
     }
 
-    /*@Then("user clicks  Allow button")
-    public void userClicksAllowButton() {
-        announcementPage.clickAllowBtn.click();
 
-        BrowserUtils.waitFor(3);
-
-
-        //Alert alert=new A
-
-
-        //To be able to click to Alert OK button we need to switch driver's focus to Alert itself.
-        Driver.getDriver().switchTo().alert().dismiss();
-
-
-
-
-        
-    }
-
-
-*/
     @Then("user can not record video")
     public void userCanNotRecordVideo() {
-
 
     }
 
     @Then("user gets the Error message")
     public void userGetsTheErrorMessage() {
-
         announcementPage.errorMsg.isDisplayed();
     }
 
@@ -496,36 +354,35 @@ public class announcement_stepdefinitions {
 
     @When("user clicks on  # icon")
     public void userClicksOnIcon() {
-
         announcementPage.clicktag.click();
-        
+
     }
 
     @Then("user sees the  Tags bar is displayed")
     public void userSeesTheTagsBarIsDisplayed() {
 
         announcementPage.displaytag.isDisplayed();
-        
+
     }
 
     @Then("user writes  tag without #")
     public void userWritesTagWithout() {
         BrowserUtils.waitFor(3);
         announcementPage.displaytag.sendKeys("#WIP");
-        
+
     }
 
     @Then("user clicks  Add button")
     public void userClicksAddButton() {
 
         announcementPage.addTag.click();
-        
+
     }
 
     @Then("user sees tag are display on  Tag box")
     public void userSeesTagAreDisplayOnTagBox() {
 
-      announcementPage.seeTag.getTagName();
+        announcementPage.seeTag.getTagName();
     }
 
 

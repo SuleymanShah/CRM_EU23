@@ -26,8 +26,6 @@ public class AnnouncementPage {
     public WebElement uploadFilesIcon;
 
     @FindBy(xpath = "(// input[@class='diskuf-fileUploader wd-test-file-light-inp diskuf-filemacos'])[1]/..")
-    //(// input[@class='diskuf-fileUploader wd-test-file-light-inp diskuf-filemacos'])[1]/..
-    //(//span[text()='Upload files and images'])[3]
     public WebElement uploadFilesAndImageModule;
 
 
@@ -44,8 +42,6 @@ public class AnnouncementPage {
 
     @FindBy(xpath = "(//span[@class='popup-window-close-icon popup-window-titlebar-close-icon'])[2]")
     public WebElement cross;
-
-
 
 
     @FindBy(xpath = "(//span[text()='Select document from Bitrix24'][1])")
@@ -71,17 +67,12 @@ public class AnnouncementPage {
     public WebElement recent;
 
 
-
-
-
-
     @FindBy(xpath = "(//div[@class='bx-finder-box-item-t7-info'])[2]/div")
     public WebElement helpdesk;
 
 
     @FindBy(xpath = "(//*[text()='helpdesk9@cybertekschool.com'])[2]")
     public WebElement findHelpdesk;
-
 
 
     @FindBy(xpath = "//*[@class='bx-finder-box-tab bx-lm-tab-department']")
@@ -96,10 +87,8 @@ public class AnnouncementPage {
     public WebElement allDepartmentAndSubdepartmentEmployees;
 
 
-
     @FindBy(xpath = "(//span[@class='feed-add-post-destination-text'])[3]")
     public WebElement findAnything;
-
 
 
     @FindBy(xpath = "//span[@class='popup-window-close-icon']")
@@ -145,7 +134,6 @@ public class AnnouncementPage {
 
     @FindBy(xpath = "(//span[@class='bx-core-adm-icon-close'])[2]")
     public WebElement videoCross;
-
 
 
     @FindBy(xpath = "//span[@id='bx-b-quote-blogPostForm']")
@@ -209,15 +197,11 @@ public class AnnouncementPage {
     public WebElement clicktag;
 
 
-
     @FindBy(xpath = "//input[@name='TAGS_blogPostForm']")
     public WebElement displaytag;
 
-
-
     @FindBy(xpath = " //span[@class='popup-window-button']")
     public WebElement addTag;
-
 
     @FindBy(xpath = " //span[@class='feed-add-post-tags']")
     public WebElement seeTag;
@@ -226,12 +210,14 @@ public class AnnouncementPage {
     @FindBy(xpath = "(//*[text()='Asiya'])[2]")
     public WebElement addAsia;
 
+
     @FindBy(xpath = "//*[text()='wang']")
     public WebElement addWang;
 
 
     @FindBy(xpath = " (//span[@class='bxhtmled-metion'])[1]")
     public WebElement addedAsiya;
+
 
     @FindBy(xpath = "(//span[@class='bxhtmled-metion'])[2]")
     public WebElement addedWang;
