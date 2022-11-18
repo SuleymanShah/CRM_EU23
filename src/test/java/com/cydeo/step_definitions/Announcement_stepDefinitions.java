@@ -1,24 +1,17 @@
 package com.cydeo.step_definitions;
 
 import com.cydeo.pages.AnnouncementPage;
-import com.cydeo.pages.AppreciationPage;
 import com.cydeo.pages.LoginPage;
 import com.cydeo.utilities.BrowserUtils;
-import com.cydeo.utilities.ConfigurationReader;
-import com.cydeo.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
 
 import static com.cydeo.utilities.BrowserUtils.waitFor;
 
-public class announcement_stepdefinitions {
+public class Announcement_stepDefinitions {
     LoginPage loginPage = new LoginPage();
     AnnouncementPage announcementPage = new AnnouncementPage();
 
@@ -54,7 +47,6 @@ public class announcement_stepdefinitions {
 
     @Then("user click Box button")
     public void userClickBoxButton() {
-
         announcementPage.boxButton.click();
     }
 
@@ -62,11 +54,8 @@ public class announcement_stepdefinitions {
     @Then("user verify notification on the screen")
     public void userVerifyNotificationOnTheScreen() {
         String expectedResult = "The social networking service Google Docs is not configured. Please contact your Bitrix24 administrator.";
-
         String actualResult = announcementPage.verfyingMessageForDownload.getText();
-
         Assert.assertEquals(expectedResult, actualResult);
-
         System.out.println(announcementPage.verfyingMessageForDownload.getText());
         waitFor(2);
 
@@ -394,6 +383,7 @@ public class announcement_stepdefinitions {
 
     @When("user clicks the  save button")
     public void userClicksTheSaveButton() {
+
         announcementPage.amazonSaveBtn.click();
     }
 }

@@ -60,7 +60,7 @@ Feature:As a user, I should be able to send announcement from Announcement subhe
 
   @AGLP-1728
   Scenario: 4. User should be able to insert videos by clicking on the video icon and entering the video URL.
-  (User able to add videos from Vimeo but not able to add videos from YouTube.)
+  (User able to add videos from Vimeo but not from YouTube.)
     Given user "hr1" is already logged in
     When user click the More dropdown
     When user click the Announcement module
@@ -107,8 +107,7 @@ Feature:As a user, I should be able to send announcement from Announcement subhe
 
   @AGLP-1733
   Scenario: 9.  User should be able to click on "Record Video" tab to record a video and attach it
-  with the message. (There is no access to the microphone and camera, there is a bug,
-  so no need to make automation)
+  with the message. (There is no access to the microphone and camera)
     Given user "hr1" is already logged in
     When user click the More dropdown
     When user click the Announcement module
