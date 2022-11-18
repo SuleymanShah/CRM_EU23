@@ -71,8 +71,7 @@ Feature: As a user, I should be able to send announcement from Announcement subh
    # When user clicks "Link" icon
     #Then user paste the text on "Link text" button
    # Then user paste "link URL" button
-    Then user clicks "Employees and departments" button
-    Then user choose a "Employees and department" from the list
+   # Then user clicks  the save button
 
 
 
@@ -85,7 +84,6 @@ Feature: As a user, I should be able to send announcement from Announcement subh
     Then user add the "URL" on the Video source button for YouTube
     Then user click "save"button
     Then user add "URL" on the Video source button for Vimeo
-    Then user choose a "Employees and department" from the list
 
   Scenario: 5. User should be able to create a quote by clicking on the Comma icon.
 

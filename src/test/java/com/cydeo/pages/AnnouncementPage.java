@@ -44,6 +44,9 @@ public class AnnouncementPage {
     @FindBy(xpath = "(//span[@class='popup-window-close-icon popup-window-titlebar-close-icon'])[2]")
     public WebElement cross;
 
+
+
+
     @FindBy(xpath = "(//span[text()='Select document from Bitrix24'][1])")
     public WebElement selectDocumentFromBitrix24;
 
@@ -97,9 +100,34 @@ public class AnnouncementPage {
     @FindBy(xpath = "(//span[@class='feed-add-post-destination-text'])[3]")
     public WebElement addHR;
 
-    @FindBy(xpath = "//span[@id='bx-b-video-blogPostForm']")
-    public WebElement linkIcon;
+    @FindBy(xpath = "//span[@class='popup-window-close-icon']")
+    public WebElement closeThePage;
 
+    @FindBy(xpath = "//span[@id='bx-b-link-blogPostForm']")
+    public WebElement theLinkIcon;
+
+
+    @FindBy(xpath = "//input[@id='linkidPostFormLHE_blogPostForm-href']")
+    public WebElement UrlBox;
+
+
+
+    @FindBy(xpath = "//input[@id='linkidPostFormLHE_blogPostForm-text']\n")
+    public WebElement UrlTextBox;
+
+
+    @FindBy(id = "undefined")
+    public WebElement clickSaveBtn;
+
+
+    @FindBy(id = "bx-b-video-blogPostForm")
+    public WebElement insertVideoIc;
+
+    @FindBy(id = "video_idPostFormLHE_blogPostForm-source")
+    public WebElement insertVideoText;
+
+    @FindBy(id = "(//input[@id='undefined'])[2]")
+    public WebElement saveBt;
 
 
 
