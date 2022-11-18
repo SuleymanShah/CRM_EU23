@@ -19,6 +19,7 @@ Feature:As a user, I should be able to send announcement from Announcement subhe
     #When user click the More dropdown
     #Then user click the Announcement module
 
+
   @AGLP-1723
   Scenario:1. User should be able to click on upload files icon to download from external drive, select documents from bixtrix24.
     Given user "hr1" is already logged in
