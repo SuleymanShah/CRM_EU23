@@ -11,20 +11,24 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
+
+import static com.cydeo.utilities.BrowserUtils.waitFor;
 
 public class announcement_stepdefinitions {
     LoginPage loginPage = new LoginPage();
     AnnouncementPage announcementPage = new AnnouncementPage();
-    AppreciationPage appreciationPage= new AppreciationPage();
+
 
     @When("user click the More dropdown")
     public void user_click_the_more_dropdown() {
-        BrowserUtils.waitFor(2);
+        waitFor(2);
         announcementPage.moreButton.click();
         //BrowserUtils.clickWithJS(announcementPage.moreButton);
-        BrowserUtils.waitFor(2);
+        waitFor(2);
 
     }
 
@@ -32,15 +36,17 @@ public class announcement_stepdefinitions {
     public void user_click_the_announcement_module() {
         announcementPage.announcementButton.click();
 
-        BrowserUtils.waitFor(2);
+        waitFor(2);
     }
+
     @When("user clicks upload the files icon")
     public void userClicksUploadTheFilesIcon() {
 
-       announcementPage.uploadFilesIcon.click();
-        BrowserUtils.waitFor(2);
+        announcementPage.uploadFilesIcon.click();
+        waitFor(2);
 
     }
+
 
     @Then("user clicks Download from external drive button")
     public void userClicksDownloadFromExternalDriveButton() {
@@ -118,7 +124,7 @@ public class announcement_stepdefinitions {
 
     // @Then("user verify uploaded file")
     // public void userVerifyUploadedFile() {
-  //  }
+    //  }
 
     @Then("user verify notification on the screen")
     public void userVerifyNotificationOnTheScreen() {
@@ -126,23 +132,25 @@ public class announcement_stepdefinitions {
 
         String actualResult = announcementPage.verfyingMessageForDownload.getText();
 
-        //Assert.assertEquals(expectedResult, actualResult);
+        Assert.assertEquals(expectedResult, actualResult);
 
         System.out.println(announcementPage.verfyingMessageForDownload.getText());
-        BrowserUtils.waitFor(2);
+        waitFor(2);
 
 
-       // @And("user close the page")
-        //public void userCloseThePage() {
-           // BrowserUtils.waitFor(3);
-        }
+    }
+
+    @And("user close the page")
+    public void userCloseThePage() {
+        waitFor(3);
+    }
 
     @And("user close the boxpage")
     public void userCloseTheBoxpage() {
 
-
-         announcementPage.cross.click();
-       // announcementPage.selectDocument.click();
+        waitFor(2);
+        announcementPage.cross.click();
+        // announcementPage.selectDocument.click();
     }
 
 
@@ -152,12 +160,13 @@ public class announcement_stepdefinitions {
     @Then("user clicks Select document from Bitrix{int} button")
     public void userClicksSelectDocumentFromBitrixButton(int arg0) {
         announcementPage.selectDocumentFromBitrix24.click();
-        BrowserUtils.waitFor(2);
+        waitFor(2);
     }
 
 
     @Then("user select the document")
     public void userSelectTheDocument() {
+        waitFor(2);
         announcementPage.flower.click();
     }
 
@@ -169,7 +178,7 @@ public class announcement_stepdefinitions {
 
     @And("user verify the message attached file")
     public void userVerifyTheMessageAttachedFile() {
-        String expectedResul = "flower.jpg";
+        String expectedResul = "Papatya (2).png";
         String actualResult = announcementPage.attachedFilesAndImages.getText();
 
         Assert.assertEquals(expectedResul, actualResult);
@@ -183,23 +192,18 @@ public class announcement_stepdefinitions {
         announcementPage.addMore.click();
     }
 
-    // @Then("user clicks Recent button")
-    // public void userClicksRecentButton() {
-    //   BrowserUtils.waitFor(2);
-    // announcementPage.recent.click();
-//
-    //}
+
 
 
     @Then("user choose user from the list")
     public void userChooseUserFromTheList() {
-        announcementPage.asia.click();
-        BrowserUtils.waitFor(2);
+        announcementPage.helpdesk.click();
+        waitFor(2);
 
-        String expectedResul = "Asiya";
-        String actualResult = announcementPage.addAsiya.getText();
+        String expectedResul = "helpdesk9@cybertekschool.com";
+        String actualResult = announcementPage.findHelpdesk.getText();
         Assert.assertEquals(expectedResul, actualResult);
-        System.out.println("announcementPage.Asiya = " + announcementPage.addAsiya.getText());
+        System.out.println("announcementPage.helpdesk = " + announcementPage.findHelpdesk.getText());
     }
 
 
@@ -208,7 +212,7 @@ public class announcement_stepdefinitions {
         announcementPage.closeRecentPage.click();
 
 
-        BrowserUtils.waitFor(2);
+        waitFor(2);
         announcementPage.addMore.click();
     }
 
@@ -220,9 +224,11 @@ public class announcement_stepdefinitions {
 
     }
 
-    @Then("user clicks HR select button")
-    public void userClicksHRSelectButton() {
-        announcementPage.HR.click();
+    @When("user clicks anything select button")
+    public void userClicksAnythingSelectButton() {
+
+        waitFor(2);
+        announcementPage.anything.click();
     }
 
     @Then("user clicks All department and subdepartment employees checkbox")
@@ -230,30 +236,32 @@ public class announcement_stepdefinitions {
         announcementPage.allDepartmentAndSubdepartmentEmployees.click();
 
 
-        String expectedResul = "HR";
-        String actualResult = announcementPage.addHR.getText();
+        String expectedResul = "anything";
+        String actualResult = announcementPage.findAnything.getText();
         Assert.assertEquals(expectedResul, actualResult);
-        System.out.println("announcementPage.HR = " + announcementPage.addHR.getText());
+        System.out.println("announcementPage.findAnyting = " + announcementPage.findAnything.getText());
 
     }
 
-    @And("user close the open page")
-    public void userCloseTheOpenPage() {
-       announcementPage.closeThePage.click();
+    @Then("user close the opened page")
+    public void userCloseTheOpenedPage() {
+
+        announcementPage.closeThePage.click();
     }
 
     @When("user clicks Link icon")
     public void userClicksLinkIcon() {
-        BrowserUtils.waitFor(2);
+        waitFor(2);
         announcementPage.theLinkIcon.click();
-        BrowserUtils.waitFor(2);
-      // BrowserUtils.clickWithJS(announcementPage.linkIcon);
+        waitFor(2);
+        // BrowserUtils.clickWithJS(announcementPage.linkIcon);
     }
 
 
     @Given("user enter the text on Link text button")
     public void userEnterTheTextOnLinkTextButton() {
-     announcementPage.UrlTextBox.sendKeys("Amazon");
+        waitFor(2);
+        announcementPage.UrlTextBox.sendKeys("Amazon");
 
     }
 
@@ -264,51 +272,272 @@ public class announcement_stepdefinitions {
     }
 
 
-    @Then("user clicks the  save button")
-    public void userClicksTheSaveButton() {
-
-        announcementPage.clickSaveBtn.click();
-    }
-
-    @When("user clicks Insert video icon")
-    public void userClicksInsertVideoIcon() {
-        announcementPage.insertVideoIc.click();
-
-    }
-
-    @Then("user add the URL on the Video source button for YouTube")
-    public void userAddTheURLOnTheVideoSourceButtonForYouTube() {
-        announcementPage.insertVideoText.sendKeys("https://www.youtube.com/watch?v=q63VbUKxuLw");
-
-    }
-
-    @Then("user click save button")
-    public void userClickSaveButton() {
-        announcementPage.saveBt.click();
 
 
-    }
-    @Then("user clicks Insert the video icon")
-    public void userClicksInsertTheVideoIcon() {
-        announcementPage.insertVideoIc.click();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @Given("user clicks  Insert video icon")
+    public void userClicksInsertVideoIcon() { announcementPage.insertVideoIc.click();
     }
 
 
     @Then("user add URL on the Video source button for Vimeo")
     public void userAddURLOnTheVideoSourceButtonForVimeo() {
-        announcementPage.insertVideoText.sendKeys("https://vimeo.com/251458060");
+
+
+            waitFor(2);
+            announcementPage.insertVideoText.sendKeys("https://vimeo.com/768009877");
+            waitFor(2);
+
 
     }
 
 
     @Then("user clicks save  button")
     public void userClicksSaveButton() {
-        announcementPage.saveBt.click();
+        waitFor(2);
+
+        announcementPage.clickSaveBtn.click();
+
+
+    }
+    @When("user click SEND button")
+    public void userClickSENDButton() {
+
+        announcementPage.sendbtn.click();
+    }
+
+
+    ////@And("user click the video cross")
+   // public void userClickTheVideoCross() {
+   //
+          //  waitFor(2);
+           // announcementPage.videoCross.click();
+           // waitFor(2);
+
+
+    //}
+    @Then("user verify the video")
+    public void userVerifyTheVideo() {
+
+
+        String expectedResul = "WWW -A Flammable Planet";
+        String actualResult = announcementPage.verfyVideoFromVimeo.getText();
+        Assert.assertEquals(expectedResul, actualResult);
+        System.out.println("announcementPage.verfyVideoFromVimeo = " + announcementPage.verfyVideoFromVimeo.getText());
 
 
     }
 
 
 
+
+
+
+
+
+
+
+
+    @When("user clicks comma icon")
+    public void userClicksCommaIcon() {
+
+        announcementPage.commaIcon.click();
+
+    }
+
+    @Then("quote area is displayed on the page")
+    public void quoteAreaIsDisplayedOnThePage() {
+        announcementPage.writeQuote.isDisplayed();
+
+
+    }
+
+   @Then("user add the quote on the quote button")
+    public void userAddTheQuoteOnTheQuoteButton() {
+        waitFor(3);
+        announcementPage.writeQuote.sendKeys("Hi");
+
+
+   }
+
+
+
+
+
+
+    @Then("user click  Send Button")
+    public void userClickSendButton() {
+
+        announcementPage.clickSendBtn.click();
+
+
+
+    }
+
+    @Given("user click the add mention icon")
+    public void userClickTheAddMentionIcon() {
+        announcementPage.addMentionIcon.click();
+    }
+
+    @When("user click Asiya")
+    public void userClickAsiya() {
+        announcementPage.addAsia.click();
+    }
+
+
+    @When("user click wang")
+    public void userClickWang() {
+        announcementPage.addWang.click();
+    }
+
+
+    @When("user clicks on  Visual editor icon")
+    public void userClicksOnVisualEditorIcon() {
+        announcementPage.visualEditor.click();
+        BrowserUtils.waitFor(2);
+
+    }
+
+    @Then("user sees  editor text bar display on top of the message box")
+    public void userSeesEditorTextBarDisplayOnTopOfTheMessageBox() {
+
+        announcementPage.visualToolBar.isDisplayed();
+    }
+
+    @When("user clicks on Topic icon")
+    public void userClicksOnTopicIcon() {
+        announcementPage.topicIcon.click();
+
+    }
+
+    @Then("user sees announcement Topic text box displays on top of the message box.")
+    public void userSeesAnnouncementTopicTextBoxDisplaysOnTopOfTheMessageBox() {
+        announcementPage.topicTitle.isDisplayed();
+
+
+        BrowserUtils.waitFor(3);
+        String expected = announcementPage.topicTitle.getAttribute("placeholder");
+        BrowserUtils.waitFor(3);
+        Assert.assertEquals(expected,"Topic");
+    }
+
+    @When("user clicks on  Record Video tab")
+    public void userClicksOnRecordVideoTab() {
+        announcementPage.recordVideoIcon.click();
+        
+    }
+
+    @Then("user sees popup message about  access permission")
+    public void userSeesPopupMessageAboutAccessPermission() {
+        announcementPage.popupPermission.isDisplayed();
+        //announcementPage.popupPermission.click();
+    }
+
+
+    @Then("user close the window")
+    public void userCloseTheWindow() {
+        announcementPage.closebtn.click();
+    }
+
+    /*@Then("user clicks  Allow button")
+    public void userClicksAllowButton() {
+        announcementPage.clickAllowBtn.click();
+
+        BrowserUtils.waitFor(3);
+
+
+        //Alert alert=new A
+
+
+        //To be able to click to Alert OK button we need to switch driver's focus to Alert itself.
+        Driver.getDriver().switchTo().alert().dismiss();
+
+
+
+
+        
+    }
+
+
+*/
+    @Then("user can not record video")
+    public void userCanNotRecordVideo() {
+
+
+    }
+
+    @Then("user gets the Error message")
+    public void userGetsTheErrorMessage() {
+
+        announcementPage.errorMsg.isDisplayed();
+    }
+
+    @Then("user click close button")
+    public void userClickCloseButton() {
+        announcementPage.close.click();
+    }
+
+    @When("user clicks on  # icon")
+    public void userClicksOnIcon() {
+
+        announcementPage.clicktag.click();
+        
+    }
+
+    @Then("user sees the  Tags bar is displayed")
+    public void userSeesTheTagsBarIsDisplayed() {
+
+        announcementPage.displaytag.isDisplayed();
+        
+    }
+
+    @Then("user writes  tag without #")
+    public void userWritesTagWithout() {
+        BrowserUtils.waitFor(3);
+        announcementPage.displaytag.sendKeys("#WIP");
+        
+    }
+
+    @Then("user clicks  Add button")
+    public void userClicksAddButton() {
+
+        announcementPage.addTag.click();
+        
+    }
+
+    @Then("user sees tag are display on  Tag box")
+    public void userSeesTagAreDisplayOnTagBox() {
+
+      announcementPage.seeTag.getTagName();
+    }
+
+
+    @Then("user clicks  CLOSE button")
+    public void userClicksCLOSEButton() {
+
+        announcementPage.closePopup.click();
+    }
+
+    @When("user clicks the  save button")
+    public void userClicksTheSaveButton() {
+        announcementPage.amazonSaveBtn.click();
+    }
 }
 
