@@ -6,7 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+
 import java.util.*;
+
 
 public class LoginPage {
     public LoginPage() {
@@ -26,7 +28,10 @@ public class LoginPage {
      * This method will read arguments from the configuration.properties file.
      */
 
+ 
+
     private static final Map<String,String> users = Map.of("hr1","hr1@cybertekschool.com","hr2",
+
             "hr50@cybertekschool.com","helpdesk1", "helpdesk3@cybertekschool.com", "helpdesk2",
             "helpdesk50@cybertekschool.com","marketing1", "marketing3@cybertekschool.com",
             "marketing2","marketing50@cybertekschool.com");
@@ -47,7 +52,9 @@ public class LoginPage {
         inputPassword.sendKeys(ConfigurationReader.getProperty("pw"));
         loginButton.click();
     }
-
+    public void HR_Login1(String username) {
+        userLogin("hr1");
+    }
     public void helpdesk_Login1() {
         userLogin("helpdesk1");
     }
@@ -68,5 +75,5 @@ public class LoginPage {
         userLogin("marketing2");
     }
 
-
+    
 }

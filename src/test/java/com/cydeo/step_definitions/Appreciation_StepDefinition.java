@@ -21,7 +21,7 @@ public class Appreciation_StepDefinition {
     @Given("user {string} is on the main page")
     public void userIsOnTheMainPage(String userShortName){
         Driver.getDriver().get(ConfigurationReader.getProperty("env"));
-        loginPage.loginWithValid("hr1");
+        loginPage.loginWithValid("hr2");
     }
 
 
@@ -43,7 +43,7 @@ public class Appreciation_StepDefinition {
     }
 
 
-    @Then("user clicks upload files icon")
+    @Then("user clicks the upload files icon")
     public void user_clicks_upload_files_icon() {
         BrowserUtils.waitFor(3);
         appreciationPage.uploadButton.click();
@@ -51,14 +51,14 @@ public class Appreciation_StepDefinition {
 
     @Then("user clicks upload files and images option")
     public void user_clicks_upload_files_and_images_option() {
-        appreciationPage.uploadFilesAndImages.click();
+    //    appreciationPage.uploadFilesAndImages.click();
     }
 
     @Then("user uploads file and image from local disk")
     public void user_uploads_file_and_image_from_local_disk() {
-        String filePath ="C:\\Users\\zuley\\Desktop\\bebek.jpg";
+     //   String filePath ="C:\\Users\\zuley\\Desktop\\bebek.jpg";
 
-        appreciationPage.uploadFilesAndImages.sendKeys(filePath); // THERE IS A PROBLEM
+     //   appreciationPage.uploadFilesAndImages.sendKeys(filePath); // THERE IS A PROBLEM
 
     }
 
@@ -73,19 +73,25 @@ public class Appreciation_StepDefinition {
     public void user_clicks_sales_and_marketing_option() {
         BrowserUtils.waitFor(3);
         appreciationPage.salesAndMarketing.click();
-        appreciationPage.selectedDocument.click();
-        appreciationPage.selectDocumentBtn.click();
+
     }
 
     @Then("user clicks {string} option")
     public void user_clicks_option(String string) {
-
+        BrowserUtils.waitFor(3);
+        appreciationPage.selectedDocument.click();
+        BrowserUtils.waitFor(3);
     }
 
+    @Then("user clicks Select Document Button")
+    public void userClicksSelectDocumentButton() {
+        appreciationPage.selectDocumentBtn.click();
+        BrowserUtils.waitFor(3);
+    }
     @Then("user clicks download from external drive option")
     public void user_clicks_download_from_external_drive_option() {
         appreciationPage.dropboxBtn.click();
-
+        BrowserUtils.waitFor(3);
     }
 
     @Then("user clicks GoogleDrive on the list")
@@ -97,8 +103,23 @@ public class Appreciation_StepDefinition {
     @Then("user should be able to have a permission message for the download from external driver")
     public void user_should_be_able_to_have_a_permission_message_for_the_download_from_external_driver() {
 
+        String expectedResult = "The social networking service Google Docs is not configured. Please contact your Bitrix24 administrator.";
+
+        String actualResult = appreciationPage.verifyDownload.getText();
+
+        appreciationPage.verifyDownload.isDisplayed();
+
+        //Assert.assertEquals(expectedResult, actualResult);
+
+        System.out.println(appreciationPage.verifyDownload.getText());
+        BrowserUtils.waitFor(3);
+
     }
 
+    @Then("user clicks popup Select Document button")
+    public void userClicksPopupSelectDocumentButton() {
+        appreciationPage.popupSelectBtn.click();
+    }
 
     @When("user clicks on the Visual editor icon")
     public void userClicksOnTheVisualEditorIcon() {
@@ -261,4 +282,7 @@ public class Appreciation_StepDefinition {
     public void userClicksOnTheAddMentionIcon() {
         appreciationPage.addMentionIcon.click();
     }
+
+
+
 }

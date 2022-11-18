@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-//plugin = { "json:<path/filename>.json" }
+
         plugin = { //"pretty",
                 "json:target/cucumber.json",
                 "html:target/cucumber-report.html",
@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/cydeo/step_definitions",
         dryRun = false,
-        tags =  "@smokeZeliha",
+        tags =  "@SMOKE",
         publish = true
 
 )
