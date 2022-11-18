@@ -336,6 +336,7 @@ public class Announcement_stepDefinitions {
         announcementPage.errorMsg.isDisplayed();
     }
 
+
     @Then("user click close button")
     public void userClickCloseButton() {
         announcementPage.close.click();
