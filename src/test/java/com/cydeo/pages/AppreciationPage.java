@@ -30,17 +30,23 @@ public class AppreciationPage {
     @FindBy(xpath = "(//span[@class='bx-file-dialog-tab-item-link-text'])[3]")
     public WebElement salesAndMarketing;
 
-    @FindBy(xpath = "//span[@title='Name: AzulCRM_App_info.pdf']")
+    @FindBy(xpath = "(//a[@class='bx-file-dialog-content-link bx-file-dialog-icon bx-file-dialog-icon-file'])[3]")
     public WebElement selectedDocument;
 
     @FindBy(xpath = "//span[@class='popup-window-button popup-window-button-accept']")
     public WebElement selectDocumentBtn;
 
-    @FindBy(xpath = "(//span[@class='wd-fa-add-file-editor-link'])[3]")
+    @FindBy(xpath = "(//span[text()='Dropbox'])[1]")
     public WebElement dropboxBtn;
 
     @FindBy(xpath = "(//span[@class='bx-file-dialog-tab-item-link-text'])[3]")
     public WebElement googleDriveBtn;
+
+    @FindBy(xpath = "(//span[text()='Download from external drive'])[1]")
+    public WebElement verifyDownload;
+
+    @FindBy(xpath = "//span[@class='popup-window-button popup-window-button-disabled']")
+    public WebElement popupSelectBtn;
 
     @FindBy(xpath = "//a[@id='bx-destination-tag']")
     public WebElement addMore;
