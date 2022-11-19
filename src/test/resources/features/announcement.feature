@@ -41,7 +41,7 @@ Feature:As a user, I should be able to send announcement from Announcement subhe
     Given user "hr1" is already logged in
     When user click the More dropdown
     When user click the Announcement module
-    Given user clicks Add more icon
+    When user clicks Add more icon
     When user choose user from the list
     When user close the Recent page
     When user clicks Employees and departments button

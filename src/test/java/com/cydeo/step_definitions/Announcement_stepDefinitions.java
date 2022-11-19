@@ -209,7 +209,6 @@ public class Announcement_stepDefinitions {
     @Then("user clicks save  button")
     public void userClicksSaveButton() {
         waitFor(2);
-
         announcementPage.clickSaveBtn.click();
 
 
@@ -217,7 +216,6 @@ public class Announcement_stepDefinitions {
 
     @When("user click SEND button")
     public void userClickSENDButton() {
-
         announcementPage.sendbtn.click();
     }
 
@@ -236,7 +234,6 @@ public class Announcement_stepDefinitions {
 
     @When("user clicks comma icon")
     public void userClicksCommaIcon() {
-
         announcementPage.commaIcon.click();
     }
 
@@ -256,7 +253,6 @@ public class Announcement_stepDefinitions {
 
     @Then("user click  Send Button")
     public void userClickSendButton() {
-
         announcementPage.clickSendBtn.click();
     }
 
@@ -363,14 +359,12 @@ public class Announcement_stepDefinitions {
 
     @Then("user clicks  Add button")
     public void userClicksAddButton() {
-
         announcementPage.addTag.click();
 
     }
 
     @Then("user sees tag are display on  Tag box")
     public void userSeesTagAreDisplayOnTagBox() {
-
         announcementPage.seeTag.getTagName();
     }
 
@@ -378,13 +372,11 @@ public class Announcement_stepDefinitions {
 
     @Then("user clicks  CLOSE button")
     public void userClicksCLOSEButton() {
-
         announcementPage.closePopup.click();
     }
 
     @When("user clicks the  save button")
     public void userClicksTheSaveButton() {
-
         announcementPage.amazonSaveBtn.click();
     }
 }
