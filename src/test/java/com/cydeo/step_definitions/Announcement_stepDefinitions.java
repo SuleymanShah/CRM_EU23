@@ -353,7 +353,6 @@ public class Announcement_stepDefinitions {
     public void userSeesTheTagsBarIsDisplayed() {
 
         announcementPage.displaytag.isDisplayed();
-
     }
 
     @Then("user writes  tag without #")
