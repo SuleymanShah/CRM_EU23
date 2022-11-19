@@ -346,7 +346,6 @@ public class Announcement_stepDefinitions {
     @When("user clicks on  # icon")
     public void userClicksOnIcon() {
         announcementPage.clicktag.click();
-
     }
 
     @Then("user sees the  Tags bar is displayed")
