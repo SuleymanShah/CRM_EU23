@@ -1,4 +1,4 @@
-@Onder
+@smoke
 Feature: As a user, I should be able to use Tasks functions on Tasks Page
   User Story:
   As a user, I should be able to display tasks "In Progress" by clicking "All Tasks" tab.
