@@ -15,6 +15,7 @@ public class SearchPage_StepDefinitions {
     @Given("user {string} is already logged in")
     public void userIsAlreadyLoggedIn(String userShortName) {
         loginPage.loginWithValid(userShortName);
+        System.out.println("trying to get github to work");
     }
 
     @When("user clicks on search icon")
